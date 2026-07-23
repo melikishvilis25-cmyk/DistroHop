@@ -23,7 +23,7 @@ Clone the repository:
 git clone git@github.com:melikishvilis25-cmyk/distrohop.git
 cd distrohop
 ```
-## Make scripts executable and run the it
+## Make scripts executable and run it
 
 ```bash
 chmod +x setup.sh installers/*.sh utils/*.sh
