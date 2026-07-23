@@ -1,0 +1,7 @@
+visual-studio-code-bin
+google-chrome
+heroic-games-launcher-bin
+matugen-bin
+swayosd-git
+networkmanager-dmenu-git
+nbfc-linux
