@@ -333,7 +333,7 @@ class Downloader
             process.WaitForExit();
 
         }
-        catch(Exception problemLOl)
+        catch(Exception problemLOl)//planning to make better try{}
         {
             C.WriteL($"Program encountered a problem. The problem: {problemLOl}");
         }
@@ -354,7 +354,7 @@ class C
     }
 
 
-    public static void Write(string text)
+    public static void Write(string text) //this doesnt works i will fix it soon
     {
         Console.Write(text);
     }
@@ -366,7 +366,7 @@ class C
     }
 
 
-    public static void Pause()
+    public static void Pause()  //"___"
     {
         Console.WriteLine("\nPress Enter to continue...");
         Console.ReadLine();
