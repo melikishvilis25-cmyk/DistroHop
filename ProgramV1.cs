@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 using System.Collections.Generic;
+// WARNING THIS IS A LEGACY VERSION OF THE CODE
 
 class DistroHop
 {
