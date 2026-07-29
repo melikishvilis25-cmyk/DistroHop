@@ -1,0 +1,30 @@
+{
+  "cachyos": [
+    "neovim",
+    "git",
+    "curl",
+    "wget",
+    "fastfetch",
+    "btop"
+  ],
+  "arch": [
+    "neovim",
+    "git",
+    "curl"
+  ],
+  "fedora": [
+    "neovim",
+    "git",
+    "curl"
+  ],
+  "debian": [
+    "neovim",
+    "git",
+    "curl"
+  ],
+  "ubuntu": [
+    "neovim",
+    "git",
+    "curl"
+  ]
+}
