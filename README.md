@@ -40,3 +40,15 @@ DistroHop relies on a `pkgs.json` file located in the same directory as the exec
   "debian": ["git", "neovim", "htop", "curl"],
   "fedora": ["git", "neovim", "htop", "curl"]
 }
+```
+
+---
+
+## 🛠 Installation
+
+```bash
+tar -xzf DistroHop-linux-x64.tar.gz
+cd publish
+chmod +x DistroHop
+./DistroHop
+```
