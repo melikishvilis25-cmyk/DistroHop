@@ -8,16 +8,24 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 /*
-    Here are some useful information if you reading this code
-    1.If i use "__" it means that im copying the comment above
-    2.If you found variables that have funny names.. Sorry
-    3.This script in split so
-        Menu and app flow -> Class DistroHop
-        Info Checking -> class pkgs
-        class C is for making menus faster
-        class Downloader is used to download and load pkgs from the json file
-    4.If you dont understand a part of a script check the comments
-    5.thanks for reading!
+    DistroHop v1.5
+
+    Project structure:
+    - DistroHop:
+        Handles application flow, menus, and user interaction.
+
+    - pkgs:
+        Detects the installed package manager and Linux distribution.
+
+    - Downloader:
+        Loads package configuration from pkgs.json and executes installation commands.
+
+    - C:
+        Contains shared console helper methods.
+
+    Notes:
+    - Some helper functions are temporary and will be improved in future versions.
+    - This version focuses on functionality and stability before adding more advanced features.
 */
 
 class DistroHop
@@ -354,8 +362,10 @@ class C
     }
 
 
-    public static void Write(string text) //this doesnt works i will fix it soon
+    public static void Write(string text) 
     {
+        // Temporary workaround: direct Console.Write is used in some places.
+        // This helper will be improved in a future version.
         Console.Write(text);
     }
 
@@ -366,8 +376,10 @@ class C
     }
 
 
-    public static void Pause()  //"___"
+    public static void Pause()
     {
+        // Currently unused.
+        // May be integrated into menu navigation in a future version.
         Console.WriteLine("\nPress Enter to continue...");
         Console.ReadLine();
     }
