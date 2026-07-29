@@ -1,33 +1,46 @@
 # DistroHop
 
-A personal Linux bootstrap tool for quickly setting up my system after a reinstall.
+A lightweight Linux package setup assistant written in C#.
 
-## Supported distros
-
-- Arch Linux
-- Debian / Ubuntu
-- Fedora
+DistroHop helps automate the process of installing your commonly used packages after switching or reinstalling Linux distributions. It detects your distribution, loads a predefined package list, and runs the required installation commands.
 
 ## Features
 
-- Automatic distro detection
-- Installs packages from package lists
-- Arch AUR support through yay
-- Simple modular structure
+- Automatic Linux distribution detection
+- JSON-based package configuration
+- Preview packages before installation
+- Installation confirmation prompt
+- Automated package installation
+- Self-contained Linux x64 executable
 
-## Usage
+## How It Works
 
-Clone the repository:
+1. DistroHop reads your system information from `/etc/os-release`
+2. It identifies your Linux distribution
+3. It loads the matching package list from `pkgs.json`
+4. You can review the packages
+5. DistroHop installs them using your distribution's package manager
+
+## Supported Distributions
+
+Currently supported:
+
+- Arch-based distributions
+- Fedora-based distributions
+- Debian-based distributions
+
+## Installation
+
+Download the latest release from the GitHub Releases page.
+
+Extract the archive:
 
 ```bash
-git clone git@github.com:melikishvilis25-cmyk/distrohop.git
-cd distrohop
+tar -xzf DistroHop-linux-x64.tar.gz
 ```
-## Make scripts executable and run it
-
-```bash
-chmod +x setup.sh installers/*.sh utils/*.sh
+Then go to de publish/ dir and run
 ```
-```bash
-./setup.sh
+chmod +x DistroHop
+./DistroHop
+
 ```
