@@ -1,46 +1,42 @@
-# DistroHop
+# DistroHop 🐧
 
-A lightweight Linux package setup assistant written in C#.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20x64-blue)](https://github.com)
+[![Language](https://img.shields.io/badge/Language-C%23-purple)](https://dotnet.microsoft.com/)
 
-DistroHop helps automate the process of installing your commonly used packages after switching or reinstalling Linux distributions. It detects your distribution, loads a predefined package list, and runs the required installation commands.
+**DistroHop** is a lightweight, cross-distro package setup assistant written in C#. 
 
-## Features
+DistroHop automates the post-installation tediousness of setting up a fresh Linux machine. Whether you're constantly distro-hopping or setting up a clean install, DistroHop detects your distribution, matches it against your central package configuration, and executes the installation commands for you.
 
-- Automatic Linux distribution detection
-- JSON-based package configuration
-- Preview packages before installation
-- Installation confirmation prompt
-- Automated package installation
-- Self-contained Linux x64 executable
+---
 
-## How It Works
+## 🌟 Features
 
-1. DistroHop reads your system information from `/etc/os-release`
-2. It identifies your Linux distribution
-3. It loads the matching package list from `pkgs.json`
-4. You can review the packages
-5. DistroHop installs them using your distribution's package manager
+- 🔍 **Automatic OS Detection:** Reads `/etc/os-release` to seamlessly identify your active distribution.
+- ⚙️ **Centralized JSON Config:** Keep all your package lists for different distributions in a single `pkgs.json` file.
+- 👁️ **Preview & Confirmation:** Review all packages scheduled for installation before running root-level commands.
+- 🚀 **Automated Setup:** Seamlessly invokes native package managers without manual copy-pasting.
+- 📦 **Standalone Executable:** Compiled as a self-contained C# Linux x64 binary—no .NET runtime required.
 
-## Supported Distributions
+---
 
-Currently supported:
+## 🐧 Supported Distributions
 
-- Arch-based distributions
-- Fedora-based distributions
-- Debian-based distributions
+DistroHop out-of-the-box supports major distribution families:
 
-## Installation
+- **Arch-based** (`pacman`)
+- **Debian / Ubuntu-based** (`apt`)
+- **Fedora-based** (`dnf`)
 
-Download the latest release from the GitHub Releases page.
+---
 
-Extract the archive:
+## ⚙️ Configuration (`pkgs.json`)
 
-```bash
-tar -xzf DistroHop-linux-x64.tar.gz
-```
-Then go to de publish/ dir and run
-```
-chmod +x DistroHop
-./DistroHop
+DistroHop relies on a `pkgs.json` file located in the same directory as the executable. You can define target packages per distribution family:
 
-```
+```json
+{
+  "arch": ["git", "neovim", "htop", "curl"],
+  "debian": ["git", "neovim", "htop", "curl"],
+  "fedora": ["git", "neovim", "htop", "curl"]
+}
