@@ -1,4 +1,4 @@
-# DistroHop
+# DistroHop 🐧 
 
 DistroHop is a CLI tool that automatically downloads packages after you hop to a different distro.
 
@@ -23,6 +23,8 @@ DistroHop automatically has a template for `pkgs.json`, but you can freely add y
   "apt": ["git", "neovim", "htop", "curl"],
   "dnf": ["git", "neovim", "htop", "curl"]
 }
+```
+---
 
 ## Quick Start
 
