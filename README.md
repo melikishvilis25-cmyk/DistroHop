@@ -1,6 +1,5 @@
 # DistroHop 🐧
 
-[![License: APACHE](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/APACHE)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20x64-blue)](https://github.com)
 [![Language](https://img.shields.io/badge/Language-C%23-purple)](https://dotnet.microsoft.com/)
 
