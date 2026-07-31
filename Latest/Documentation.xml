@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>DistroHop</name>
+  </assembly>
+  <members>
+
+    <!-- PROGRAM -->
+    <member name="T:DistroHop.Program">
+      <summary>
+        Entry point of the DistroHop V2 application.
+      </summary>
+    </member>
+    <member name="M:DistroHop.Program.Main(System.String[])">
+      <summary>
+        Instantiates the main App workflow and starts the execution loop.
+      </summary>
+      <param name="args">Command-line arguments (currently unused).</param>
+    </member>
+
+    <!-- APP -->
+    <member name="T:DistroHop.App">
+      <summary>
+        Orchestrates application state, menu navigation, profile loading, and execution flow.
+      </summary>
+    </member>
+    <member name="M:DistroHop.App.MainLoop">
+      <summary>
+        Initializes environmental parameters and runs the main interactive CLI loop.
+      </summary>
+    </member>
+    <member name="M:DistroHop.App.Initialize">
+      <summary>
+        Calls the environmental checker to detect the current Linux distribution and package manager.
+      </summary>
+    </member>
+    <member name="M:DistroHop.App.SelectProfile">
+      <summary>
+        Prompts the user to pick a package profile (e.g., Gaming, Work, Essential), loads packages matching the current package manager, displays them, and triggers installation if confirmed.
+      </summary>
+    </member>
+
+    <!-- MENU -->
+    <member name="T:DistroHop.Menu">
+      <summary>
+        Handles terminal UI text output, options display, and menu selection prompts.
+      </summary>
+    </member>
+    <member name="F:DistroHop.Menu.Heading">
+      <summary>
+        Standard visual header printed across application screens.
+      </summary>
+    </member>
+    <member name="M:DistroHop.Menu.MainMenu">
+      <summary>
+        Renders the root menu options (Start, Script Info, Exit) and captures user input.
+      </summary>
+      <returns>The raw menu choice typed by the user.</returns>
+    </member>
+    <member name="M:DistroHop.Menu.Profiles">
+      <summary>
+        Displays an interactive profile selection screen allowing users to toggle between Gaming, Work, and Essential profiles.
+      </summary>
+      <returns>The selected profile key as a string ("gaming", "work", or "essential").</returns>
+    </member>
+    <member name="M:DistroHop.Menu.SetupMenu(System.String,System.String,System.String)">
+      <summary>
+        Renders the current distro setup screen displaying active package manager details.
+      </summary>
+      <param name="PM">Detected package manager name.</param>
+      <param name="Distro">Detected Linux distribution name.</param>
+      <param name="state">Current menu display state string.</param>
+      <returns>The user choice string from the setup menu.</returns>
+    </member>
+
+    <!-- HELPER -->
+    <member name="T:DistroHop.Helper">
+      <summary>
+        Static utility wrappers for Console I/O operations.
+      </summary>
+    </member>
+    <member name="M:DistroHop.Helper.WL(System.String)">
+      <summary>
+        Shorthand wrapper for Console.WriteLine.
+      </summary>
+      <param name="text">The string content to print to the console.</param>
+    </member>
+    <member name="M:DistroHop.Helper.Read">
+      <summary>
+        Shorthand wrapper for Console.ReadLine with null-coalescing safety.
+      </summary>
+      <returns>The string input from standard input stream, defaulting to empty string if null.</returns>
+    </member>
+    <member name="M:DistroHop.Helper.Pause">
+      <summary>
+        Blocks execution until the user presses Enter.
+      </summary>
+    </member>
+
+    <!-- LOADER -->
+    <member name="T:DistroHop.Loader">
+      <summary>
+        Manages file system operations, profile parsing, and JSON config deserialization.
+      </summary>
+    </member>
+    <member name="M:DistroHop.Loader.Initialize">
+      <summary>
+        Executes the environment check to verify OS identification and package manager availability.
+      </summary>
+      <returns>A tuple containing (Distro, PM) strings, or ("unknown", "unknown") on failure.</returns>
+    </member>
+    <member name="M:DistroHop.Loader.LoadProfile(System.String,System.String)">
+      <summary>
+        Retrieves package names for a specific profile and package manager from <c>pkgs.json</c>.
+      </summary>
+      <param name="profile">The profile category key (e.g., "essential").</param>
+      <param name="pm">The package manager key (e.g., "apt", "pacman").</param>
+      <returns>A list of package names to be passed to the installer.</returns>
+    </member>
+    <member name="M:DistroHop.Loader.Load">
+      <summary>
+        Deserializes the nested <c>pkgs.json</c> file into a nested dictionary structure.
+      </summary>
+      <returns>A nested structure of Profile -> Package Manager -> Package List.</returns>
+    </member>
+
+    <!-- ENVIRONMENT CHECKER -->
+    <member name="T:DistroHop.EnvironmentChecker">
+      <summary>
+        Inspects Linux environment files and binary paths to determine host OS characteristics.
+      </summary>
+    </member>
+    <member name="M:DistroHop.EnvironmentChecker.Check">
+      <summary>
+        Performs full environment verification.
+      </summary>
+      <returns>A tuple indicating success status, distribution name, and available package manager.</returns>
+    </member>
+    <member name="M:DistroHop.EnvironmentChecker.DistroCheck">
+      <summary>
+        Parses <c>/etc/os-release</c> to extract the ID or ID_LIKE values.
+      </summary>
+      <returns>The distribution identifier string, or "unknown" if parsing fails.</returns>
+    </member>
+    <member name="M:DistroHop.EnvironmentChecker.pkgmanager">
+      <summary>
+        Checks system paths (<c>/usr/bin/</c> and <c>/bin/</c>) for supported binary executables.
+      </summary>
+      <returns>Name of the detected package manager binary.</returns>
+    </member>
+
+    <!-- JSON INTEGRITY -->
+    <member name="T:DistroHop.JsonIntegrity">
+      <summary>
+        Provides safety checks to validate JSON structure and verify that package arguments contain safe characters.
+      </summary>
+    </member>
+    <member name="M:DistroHop.JsonIntegrity.Validate(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}}})">
+      <summary>
+        Validates the overall nested JSON structure for null values, empty entries, and disallowed package name strings.
+      </summary>
+      <param name="data">Deserialized JSON package profile object.</param>
+      <returns>True if structure and string inputs pass safety checks; otherwise, false.</returns>
+    </member>
+
+    <!-- DOWNLOADER -->
+    <member name="T:DistroHop.Downloader">
+      <summary>
+        Handles terminal process invocation and execution of package manager commands via sudo.
+      </summary>
+    </member>
+    <member name="M:DistroHop.Downloader.Download(System.Collections.Generic.List{System.String},System.String)">
+      <summary>
+        Constructs package manager command strings according to the active binary (apt, pacman, dnf, zypper, apk) and executes installation.
+      </summary>
+      <param name="pkgs">List of software package names to install.</param>
+      <param name="manager">Target package manager name.</param>
+    </member>
+    <member name="M:DistroHop.Downloader.DownloadPkgs(System.String,System.String)">
+      <summary>
+        Spawns a system process without output redirection to ensure interactive sudo prompts function correctly in the host terminal.
+      </summary>
+      <param name="command">Executable binary path (typically "sudo").</param>
+      <param name="args">Full command string arguments including package manager and flags.</param>
+    </member>
+
+  </members>
+</doc>
