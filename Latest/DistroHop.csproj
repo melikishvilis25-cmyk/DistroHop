@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+  <GenerateDocumentationFile>true</GenerateDocumentationFile>
   <ItemGroup>
     <None Update="pkgs.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
