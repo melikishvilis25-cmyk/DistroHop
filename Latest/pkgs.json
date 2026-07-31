@@ -1,0 +1,98 @@
+{
+  "gaming": {
+    "apt": [
+      "steam",
+      "lutris",
+      "wine"
+    ],
+    "pacman": [
+      "steam",
+      "lutris",
+      "wine"
+    ],
+    "dnf": [
+      "steam",
+      "lutris",
+      "wine"
+    ],
+    "zypper": [
+      "steam",
+      "lutris"
+    ],
+    "apk": [
+      "steam",
+      "wine"
+    ]
+  },
+
+  "essential": {
+    "apt": [
+      "curl",
+      "wget",
+      "git",
+      "fastfetch",
+      "neovim"
+    ],
+    "pacman": [
+      "curl",
+      "wget",
+      "git",
+      "fastfetch",
+      "neovim"
+    ],
+    "dnf": [
+      "curl",
+      "wget",
+      "git",
+      "fastfetch",
+      "neovim"
+    ],
+    "zypper": [
+      "curl",
+      "wget",
+      "git",
+      "fastfetch",
+      "neovim"
+    ],
+    "apk": [
+      "curl",
+      "wget",
+      "git",
+      "fastfetch",
+      "neovim"
+    ]
+  },
+
+  "work": {
+    "apt": [
+      "curl",
+      "git",
+      "neovim",
+      "python3"
+    ],
+    "pacman": [
+      "curl",
+      "git",
+      "neovim",
+      "python"
+    ],
+    "dnf": [
+      "curl",
+      "git",
+      "neovim",
+      "python3"
+    ],
+    "zypper": [
+      "curl",
+      "git",
+      "neovim",
+      "python3"
+    ],
+    "apk": [
+      "curl",
+      "git",
+      "neovim",
+      "python3"
+    ]
+  }
+}
