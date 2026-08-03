@@ -71,6 +71,7 @@ cd DistroHop
 chmod +x DistroHop
 ./DistroHop
 ```
+
 ---
-### Fully built by Me (melikishvilis25-cmyk / DatoVarZma). Thanks for reading
+Built by melikishvilis25-cmyk (DatoVarZma) as a learning project focused on C# architecture and cross-distro tooling.
 ---
