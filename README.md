@@ -73,5 +73,5 @@ chmod +x DistroHop
 ```
 
 ---
-### Built by melikishvilis25-cmyk (DatoVarZma) as a learning project focused on C# architecture and cross-distro tooling.
----
+
+Built by melikishvilis25-cmyk (DatoVarZma) as a learning project focused on C# architecture and cross-distro tooling.
