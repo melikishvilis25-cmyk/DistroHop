@@ -1,3 +1,4 @@
+# i quit coding so this project is dead
 # DistroHop
 
 DistroHop is a CLI tool that automatically downloads packages after you hop to a different distro.
