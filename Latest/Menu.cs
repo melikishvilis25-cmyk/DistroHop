@@ -11,7 +11,7 @@ class Menu
     public string MainMenu()
     {
         Helper.WL(Heading);
-        Helper.WL("\n==Made by DatoVarZma/Melikishvilis25-cmyk");
+        Helper.WL("\n==Made by DatoVarZma/Melikishvilis25-cmyk==");
         Helper.WL("1.Start");
         Helper.WL("2.Script information");
         Helper.WL("0.Exit");
